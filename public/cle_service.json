@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "upheld-arena-452120-v4",
+  "private_key_id": "cde7a2141b46dea3d887c981014e451a387d813f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCyujv2r0rsrkXI\nsyU7Wp2fYIVCi3bdkF0EUE2sfCZPiqKdOSC1GUNV238WrrxC/3ez3GOKbJa6Ay7N\nHWEebU9bJUdCi5wjb6qZZVYyyd5IztVT4qzGImIHcDs94JwvOX7mh4AfTUYL7DQZ\ntoiY+x37uaY9PT0m6chgS32nZa5r2h4uAOqoPXKGtwZlaVv3LtrOQBh28hDvfyFW\nBIWUsjy4JNILmCtTlpfjP3+OJLJ+Qv/7H2g3LSmNOYjJQtCpGBxHOUX/fEh4Udnb\nhvhlBJsoe9LR4Gh8YTIFY7LXO4BEg76AAFYKxyOMJfyOp2PUYfLqrUiYe71mbWtC\nv2i7uTKrAgMBAAECggEAF9/l07Gd1hj/jGxV3GRh6uDXXEjKA5Xdvw5FGfXpnjV8\nPHldo6Nwyb7M7sg/sMl0gYu+pkaUKdvz/AVhLFHYyGml579Dh75KcTxGs/kgXuR2\nPcLpZnxAURMObtkas/o/t+bA2C2X3k7atNabz6e33SDzEnokOZcAI9Dhw6NDFffv\nJfs7jdq7iGDh+SZgHGB31eyhY0A8K6wooIXMmexf642JR38dwaU9rvUlKIm0+Ppn\ngXfLxpRSu0Vs/KURqNM6r+VhPGoIWMFi9kKH2H23ue6Q6e80yw6Ljn84ZQJNagkI\ndUkWaZ2FlLS6dpv47Rwu0ZRUSZ7tIOI6enAvER0kqQKBgQDrxpKrhE1butZqERuV\nGnkxQ15iusYpG8x3F4J+4lPN7kRualvlDWxErK34q4h1+ZnYhSN8rcrC6Paxg8sP\nydqjdzj06fkC80kH7D+zoLVAA2M4BUySG9trarQ+KZc9bzlHsYwlIL4tE3my/nO6\ndcQ5nu2UeMhfINH+oMImoj5PUwKBgQDCDu7SuQU0hIsy5V0bTlPXWnjtIz8PuwII\nsNx/YxRhuC+y3D/C9GtKmHYfp7w6Ga6fdadQxsZ5E3bXJv7yBDhTMFodiUZAEnx+\n1sYS7Ev1JOIDoc6x8sRdfgUfqi9w7GiGcRFgT0mnuvhtyM1BNPFjNs6itiydBDJc\ni3QZFCqcSQKBgQDL4gszBlVe3VJMpj6T0TC7yOX1uk1hfwhwc4QE9PJDQacrVA3j\nJJhbSnemca6vVggTlA374s1TfuDU4ILYRFUsxgwavbj3NCoTD9iGHJKfqE5EQ1DT\niANWAA+dMZn3JhcCSCZIdOf/UrgKcL7inrPwn94SZd/fYyI0bg92GRaIwQKBgEkK\nS9OedhoVRTtL3yZ27dGhqOBAouyty48v2l5MEZDSPYnJomojivqRtewmOw93OSWl\np+scVfmeXN2QPOcktXqCOXjigUF+c8Nd3UGkFNbZIgSR83VA1a4Gz7DiYmbTZGgt\nyIeCcEukcPsJWFARuEVKjK3reZFD0hzJFFKYJ42ZAoGAXArgtiutNVBmJY/JN6NM\nsJ7/NtOOUPSSDMxnYQgoKrqFrLUXmXGxt9V1Jv3oKblnE4mjmBFoDi1wUNs7t3Lr\n1IvuQDWgqCxiVLGvIOF0Jej4sKA6h5uReGrcJQvcMgboyM1KUq3G/QWSMp7xT+FI\njTwXwhUhOydgjyrgcejQxwI=\n-----END PRIVATE KEY-----\n",
+  "client_email": "shibako-site-client@upheld-arena-452120-v4.iam.gserviceaccount.com",
+  "client_id": "104196033152442841447",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/shibako-site-client%40upheld-arena-452120-v4.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

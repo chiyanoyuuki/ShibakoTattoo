@@ -1,0 +1,51 @@
+[
+  {
+    "nom": "Viktor",
+    "univers": "Arcane",
+    "temps": "8h00",
+    "prix": 600,
+    "img": "0.png"
+  },
+  {
+    "nom": "Jinx",
+    "univers": "Arcane",
+    "temps": "7h00",
+    "prix": 500,
+    "img": "1.png"
+  },
+  {
+    "nom": "Caitlyn",
+    "univers": "Arcane",
+    "temps": "8h00",
+    "prix": 550,
+    "img": "2.png"
+  },
+  {
+    "nom": "Isha",
+    "univers": "Arcane",
+    "temps": "5h00",
+    "prix": 360,
+    "img": "3.png"
+  },
+  {
+    "nom": "Vi",
+    "univers": "Arcane",
+    "temps": "9h00",
+    "prix": 1100,
+    "img": "4.png"
+  },
+  {
+    "nom": "Mel",
+    "univers": "Arcane",
+    "temps": "6h00",
+    "prix": 750,
+    "img": "5.png"
+  },
+  {
+    "nom": "Sevika",
+    "univers": "Arcane",
+    "temps": "9h00",
+    "prix": 900,
+    "img": "6.png"
+  }
+]

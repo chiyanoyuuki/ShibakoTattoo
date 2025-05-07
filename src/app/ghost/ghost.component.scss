@@ -1,0 +1,7 @@
+.ghost {
+  position: absolute;
+  width: 70px;
+  transition: 10s linear;
+  pointer-events: none;
+  z-index: 1000;
+}

@@ -40,3 +40,11 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Other
+src/environments/environment.ts
+src/environments/environment.prod.ts
+public/mockdata.json
+docs/mockdata.json
+public/oauth.json
+docs/oauth.json

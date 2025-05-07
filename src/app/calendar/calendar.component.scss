@@ -1,0 +1,145 @@
+.calendar-container {
+    width: 300px;
+    font-family: Arial, sans-serif;
+    border: 2px ridge var(--gris);
+    padding: 1vh 2vw 3vh 2vw;
+    z-index: 0;
+    background: var(--noir);
+    filter: drop-shadow(1px 1px 2px var(--gris)) drop-shadow(1px 1px 2px var(--gris));
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .header button {
+    border: none;
+    font-size: 16px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .month-year {
+    text-align: center;
+  }
+  
+  .year {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .month {
+    font-size: 20px;
+    margin-top: 5px;
+  }
+  
+  .weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin-bottom: 5px;
+  }
+  
+  .day-header {
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+  }
+  
+  .day {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid var(--gris);
+    cursor: pointer;
+  }
+  
+  .empty {
+    border-color: transparent;
+    pointer-events: none;
+  }
+
+  .day{
+    transition: 0.5s;
+    img{
+        position: absolute;
+        width: 100%;
+        left: 0px;
+        top: 0px;
+        z-index: 1;
+        opacity: 0!important;
+    }
+  }
+  
+  .day:hover{
+    background-color:var(--gris);
+  }
+  .full{
+    pointer-events: none!important;
+    img{
+        width: 100%;
+        left: 0px;
+        top: 0px;
+        z-index: 1;
+        opacity: 1!important;
+    }
+  }
+  .notfull{
+    background-color:#303030!important;
+  }
+  .container{
+    justify-content: space-evenly;
+    margin-bottom:2vh;
+    width:70%;
+    left:15%;
+  }
+  .dayclicked{
+    display:flex;
+    .selectdate{
+        margin:auto;
+        font-weight: bold;
+        font-size: 25px;
+    }
+  }
+
+  .horaire-container {
+    display: flex;
+    flex-direction: column; /* Afficher les heures de haut en bas */
+    gap: 10px; /* Espacement entre les heures */
+    padding: 10px;
+    width: 100px;
+    text-align: center;
+    border-radius: 8px;
+  }
+  
+  .horaire-item {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  .dateresa{
+    display:flex;
+    justify-content: center;
+    text-align: center;
+    margin-top:2vh;
+    font-size: 25px;
+  }
+  .clicked{
+    color:black!important;
+    background-color:var(--gris);
+    font-weight:bold;
+  }
+  .disabled{
+    pointer-events: none;
+    opacity:0.2!important;
+  }
+  .none{
+    opacity:0.2!important;
+    pointer-events: none!important;
+  }

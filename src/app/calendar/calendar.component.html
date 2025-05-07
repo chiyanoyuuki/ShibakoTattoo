@@ -1,0 +1,36 @@
+<div class="container" id="calendar" #calendar>
+    <div class="calendar-container" *ngIf="events">
+        <div class="header">
+          <button (click)="moveToPreviousYear()"><<</button>
+          <button (click)="moveToPreviousMonth()"><</button>
+      
+          <div class="month-year">
+            <div class="year">{{ currentYear }}</div>
+            <div class="month">{{ currentMonth }}</div>
+          </div>
+      
+          <button (click)="moveToNextMonth()">></button>
+          <button (click)="moveToNextYear()">>></button>
+        </div>
+      
+        <div class="weekdays">
+          <div *ngFor="let day of daysOfWeek" class="day-header">{{ day }}</div>
+        </div>
+      
+        <div class="days">
+          <!-- Cases vides avant le 1er jour -->
+          <div *ngFor="let empty of [].constructor(emptyDaysBefore)" class="day empty"></div>
+          
+          <!-- Jours du mois -->
+          <div *ngFor="let day of daysInMonth;let i=index" class="day" 
+          [ngClass]="getClass(day)" [class.clicked]="clickedDay==dayToDate(day)" [class.disabled]="infToToday(day)" 
+          (click)="clickDay(day)">
+            <p>{{ day }}</p>
+            <img src="cross.png"/>
+          </div>
+        </div>
+    </div>
+
+    <p *ngIf="clickedDay" class="dateresa">{{clickedDay | date:'dd / MM / yyyy' : 'en-US'}}</p>
+</div>
+

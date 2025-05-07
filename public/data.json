@@ -1,0 +1,126 @@
+[
+  {
+    "menus": ["Qui suis-je ?", "Flashs", "Contact"],
+    "textes": {
+      "whoami": "À propos de moi<br/><br/>Depuis que je suis enfant, le dessin a toujours été une évidence. J’ai grandi avec un crayon à la main, explorant sans cesse de nouvelles formes et de nouvelles idées. À 13 ans, j’ai su que je voulais devenir tatoueuse, fascinée par les grands tatouages de dos des yakuzas dans les films japonais. Cette passion m’a menée à découvrir l’art traditionnel japonais, une source d’inspiration inépuisable qui influence profondément mon travail aujourd’hui.<br/><br/>Mon style s’inscrit dans une approche néo-japonaise, même si je ne cherche pas à en respecter strictement tous les codes. J’aime explorer et réinterpréter cet héritage artistique, en y intégrant ma sensibilité et mes propres influences. Je suis particulièrement attirée par les sujets froids et calmes, ce qui se ressent naturellement dans mes compositions : des lignes épurées, des atmosphères sereines et des détails soignés.<br/><br/>Avant de me lancer en tant que tatoueuse professionnelle en 2021, j’ai suivi une formation en arts ainsi qu’en langue chinoise, ce qui nourrit encore aujourd’hui ma compréhension des symboles et des histoires que je mets en image. J’ai également complété une formation en hygiène et appris aux côtés d’un mentor en tant qu’apprentie tatoueuse, ce qui m’a permis d’acquérir rigueur et maîtrise technique.<br/><br/>Aujourd’hui, je mets tout mon cœur et mon expertise au service de mes clients. Chaque projet est une collaboration, une histoire unique que nous construisons ensemble. Si vous recherchez un tatouage inspiré du Japon traditionnel, avec une touche personnelle et contemporaine, je serais ravie de donner vie à votre idée.<br/><br/>Prenez rendez-vous et créons ensemble une pièce qui vous ressemble.",
+      "rdv": "Contact",
+      "resa": "Réserver",
+      "retour": "Retour",
+      "selectDate": "Veuillez sélectionner une date de réservation",
+      "selectCreneau": "Veuillez sélectionner un créneau"
+    },
+    "contact": [
+      {
+        "nom": "Nom du projet",
+        "type": "text",
+        "id": "proj",
+        "flash": false
+      },
+      {
+        "nom": "Taille du projet",
+        "type": "select",
+        "id": "size",
+        "options": [
+          "Petit (< 2h)",
+          "Moyen (~ 2h/4h)",
+          "Grand (~ 4h/6h)",
+          "Très grand (Plus d'1 jour)"
+        ],
+        "flash": false
+      },
+      {
+        "nom": "Nom et prénom",
+        "type": "text",
+        "id": "nom"
+      },
+      {
+        "nom": "Adresse e-mail",
+        "type": "text",
+        "id": "mail"
+      },
+      {
+        "nom": "Téléphone",
+        "type": "text",
+        "id": "tel"
+      },
+      {
+        "nom": "Budget",
+        "type": "text",
+        "id": "budg",
+        "flash": false
+      },
+      {
+        "nom": "Zone à tatouer",
+        "type": "text",
+        "id": "zone"
+      },
+      {
+        "nom": "Informations complémentaires",
+        "type": "textarea",
+        "id": "infos"
+      }
+    ]
+  },
+  {
+    "menus": ["Who am I ?", "Flashs", "Contact"],
+    "textes": {
+      "whoami": "About Me<br/><br/>Ever since I was a child, drawing has been second nature to me. I grew up with a pencil in hand, constantly exploring new shapes and ideas. At 13, I knew I wanted to become a tattoo artist, fascinated by the large back tattoos of yakuza in Japanese films. This passion led me to discover traditional Japanese art, which remains an endless source of inspiration in my work today.<br/><br/>My style leans towards neo-Japanese, though I don’t strictly adhere to all its traditional rules. I love to explore and reinterpret this artistic heritage, blending it with my own influences. I’m particularly drawn to cold and serene subjects, and that feeling naturally flows into my designs—clean lines, tranquil atmospheres, and meticulous details.<br/><br/>Before starting my professional tattoo career in 2021, I studied art and Chinese language, which continues to shape my understanding of the symbols and stories I bring to life. I also completed hygiene training and worked as a tattoo apprentice, gaining technical expertise and discipline along the way.<br/><br/>Today, I dedicate my passion and skills to my clients. Every project is a collaboration, a unique story we build together. If you’re looking for a tattoo inspired by traditional Japanese art with a personal and modern touch, I’d love to bring your vision to life.<br/><br/>Book an appointment and let’s create something meaningful together.",
+      "rdv": "Contact",
+      "resa": "Book",
+      "retour": "Return",
+      "selectDate": "Please select a booking date",
+      "selectCreneau": "Please select a time slot"
+    },
+    "contact": [
+      {
+        "nom": "Project name",
+        "type": "text",
+        "id": "proj",
+        "flash": false
+      },
+      {
+        "nom": "Project size",
+        "type": "select",
+        "id": "size",
+        "options": [
+          "Small (< 2h)",
+          "Medium (~ 2h/4h)",
+          "Big (~ 4h/6h)",
+          "Huge (More than 1 day)"
+        ],
+        "flash": false
+      },
+      {
+        "nom": "Full name",
+        "type": "text",
+        "id": "nom"
+      },
+      {
+        "nom": "Email address",
+        "type": "text",
+        "id": "mail"
+      },
+      {
+        "nom": "Phone number",
+        "type": "text",
+        "id": "tel"
+      },
+      {
+        "nom": "Budget",
+        "type": "text",
+        "id": "budg",
+        "flash": false
+      },
+      {
+        "nom": "Tattoo area",
+        "type": "text",
+        "id": "zone"
+      },
+      {
+        "nom": "Additional information",
+        "type": "textarea",
+        "id": "infos"
+      }
+    ]
+  }
+]

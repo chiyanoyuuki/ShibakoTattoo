@@ -1,0 +1,11 @@
+<img
+  *ngFor="let ghost of ghosts"
+  [src]="ghostImage"
+  [ngStyle]="{
+    'top.px': ghost.top,
+    'left.px': ghost.left,
+    'transform': 'scale(' + ghost.scale + ') rotate(' + ghost.rotate + 'deg)',
+    'opacity': ghost.opacity
+  }"
+  class="ghost"
+/>
