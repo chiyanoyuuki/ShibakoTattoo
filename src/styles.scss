@@ -306,6 +306,7 @@ img, .line, .midline{
             max-height: 35vh;
             object-fit: cover;
             object-position: center;
+            max-width: 100%;
         }
         .infos{
             display:unset;
@@ -378,7 +379,7 @@ app-calendar{
             margin-bottom:2vh;
         }
         app-calendar{
-            margin:auto;
+            margin:auto!important;
         }
     }
 }
@@ -389,7 +390,8 @@ app-calendar{
         display:flex;
         app-calendar{
             display:block;
-            width:fit-content
+            width:fit-content;
+            margin-left:15%;
         }
     }
     .creneaux{
@@ -636,7 +638,7 @@ app-ghost{
   z-index: 100;
   left: 0px;
   div{
-    top: 5vh;
+    margin: 15vh 5vw;
     .quit{
         position: absolute;
         z-index: 1;
@@ -652,8 +654,10 @@ app-ghost{
         top: -60%;
     }
     p{
+        font-size:20px;
         width: fit-content;
         margin: auto;
+        margin-bottom:3vh;
     }
   }
 }
