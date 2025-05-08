@@ -3,7 +3,7 @@
 
 <div class="container" *ngIf="data&&!admin" [class.mobile]="mobile"> 
 
-  <div class="menumobile" *ngIf="data" [class.noopacity]="!showmenu">
+  <div class="menumobile" *ngIf="data" [class.disable]="!showmenu">
     <div>
       <img src="minicadre.png">
       <p class="clickable quit" (click)="showmenu=false">x</p>

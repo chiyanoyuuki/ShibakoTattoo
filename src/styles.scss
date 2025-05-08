@@ -482,6 +482,9 @@ option{
         opacity: 0.2;
     }
 }
+.disable{
+    display:none;
+}
 .disabled{
     pointer-events: none;
     opacity:0.4;
