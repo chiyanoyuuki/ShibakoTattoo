@@ -93,11 +93,12 @@
   .notfull{
     background-color:#303030!important;
   }
-  .container{
+  .main-container{
     justify-content: space-evenly;
     margin-bottom:2vh;
     width:70%;
     left:15%;
+    width: fit-content;
   }
   .dayclicked{
     display:flex;

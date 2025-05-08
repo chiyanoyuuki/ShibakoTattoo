@@ -1,209 +1,253 @@
 
-  
-
-<div class="container" *ngIf="data&&!admin" [class.mobile]="mobile">
-
-  <img src="topcadre.png" class="topcadre">
-  <img src="botcadre.png" class="botcadre">
-
-  <app-ghost></app-ghost>
-
-  <img src="{{lang==0?'fr':'en'}}.png" class="clickable lang" (click)="lang=lang==0?1:0" [class.stuckflag]="isSticky"/>
-  <img src="menu.png" class="clickable menuorbe" [class.stuckflag]="isSticky" [class.noopacity]="!mobile"/>
-
-  <div class="header" [class.stuck]="isSticky">
 
 
-    <div class="toplogo">
-      <img src="shibako.png" class="shibako" [class.noopacity]="mobile"/>
-      <img src="logo.png">
-      <img src="tattoo.png" class="tattoo" [class.noopacity]="mobile"/>
-    </div>
+<div class="container" *ngIf="data&&!admin" [class.mobile]="mobile"> 
 
-  
-  
-    <div class="topmenus" [class.noopacity]="mobile">
+  <div class="transition menumobile" *ngIf="data" [class.noopacity]="!showmenu">
+    <div>
+      <img src="minicadre.png">
+      <p class="clickable quit" (click)="showmenu=false">x</p>
       <p *ngFor="let menu of data[lang].menus;let i=index" class="clickable" (click)="clickMenu(i)" [class.clicked]="menuClicked==i">{{menu | uppercase}}</p>
     </div>
-    
-    <img src="ligne.png" class="ligne botminmarg"/>
-  </div>
-
-  <!-- CONTENT -->
+  </div> 
   
-  <div class="content" [style.opacity]="opacity">
-    <div class="whoami" *ngIf="menuClicked==0" [class.stuckcontent]="isSticky">
-      <div class="desc">
-        <img src="me.png" />
-        <p [innerHTML]="data[lang].textes.whoami"></p>
-      </div>
-    
-      <img src="ligne.png" class="ligne midline"/>
-    
-      <div class="mywork">
-          <img *ngFor="let i of generateRange(5)" src="mywork/{{i}}.png"/>
-      </div>
-    </div>
+  <div class="data transition" [class.noopacity]="showmenu">
+    <img src="topcadre.png" class="topcadre">
+    <img src="botcadre.png" class="botcadre">
   
-    <div *ngIf="menuClicked==1" [class.stuckcontent]="isSticky">
-      <ng-container *ngIf="!flashClicked">
-        <div class="flashs">
-            <div *ngFor="let flash of getFlashs()" class="flash" (click)="reserverFlash(flash)">
-              <img src="https://chiyanh.cluster031.hosting.ovh.net/shibako/flashs/{{flash.img}}" />
-        
-              <div class="infos">
-                <div>
-                  <p>{{flash.nom}}</p>
-                  <p>{{flash.univers}}</p>
-                </div>
-                <div>
-                  <p>Temps : {{flash.temps}}</p>
-                  <p>Prix : {{flash.prix}}€</p>
-                </div>
-              </div>
-        
-            </div>
+    <app-ghost></app-ghost>
+  
+    
+  
+    <div class="header" >
+  
+      <div class="transition" [class.noopacity]="mobile||isSticky" [class.absolute]="mobile||isSticky">
+        <img src="{{lang==0?'fr':'en'}}.png" class="clickable lang" (click)="lang=lang==0?1:0"/>
+  
+        <div class="toplogo">
+          <img src="shibako.png" class="shibako"/>
+          <img src="logo.png">
+          <img src="tattoo.png" class="tattoo"/>
         </div>
-      </ng-container>
+      
+        <div class="topmenus">
+          <p *ngFor="let menu of data[lang].menus;let i=index" class="clickable" (click)="clickMenu(i)" [class.clicked]="menuClicked==i">{{menu | uppercase}}</p>
+        </div>
         
-      <ng-container *ngIf="flashClicked&&!flashClicked.reserved">
-      <div class="clickedFlash">
-          <div class="retour">
-            <button (click)="flashClicked=undefined">{{data[lang].textes.retour}}</button>
-          </div>
-          <div class="flex center">
-            <div class="flash">
-              <img src="flashs/{{flashClicked.img}}"/>
-        
-              <div class="infos">
-                <div>
-                  <p>{{flashClicked.nom}}</p>
-                  <p>{{flashClicked.univers}}</p>
-                </div>
-                <div>
-                  <p>Temps : {{flashClicked.temps}}</p>
-                  <p>Prix : {{flashClicked.prix}}€</p>
-                </div>
-              </div>
-            </div>
-            <app-calendar [events]="events" [flashClicked]="flashClicked" (retour)="onClickDay($event)"></app-calendar>
-          </div>
-          
-          <p *ngIf="creneaux.length==0" class="center">{{data[lang].textes.selectDate}}</p>
-          <p *ngIf="creneaux.length>0 && clickedCreneau==-1" class="center">{{data[lang].textes.selectCreneau}}</p>
+        <img src="ligne.png" class="ligne botminmarg"/>
+      </div>
+      
   
-          <div class="creneaux" *ngIf="creneaux.length>0">
-            <p *ngFor="let creneau of creneaux;let x=index" class="clickable" (click)="clickedCreneau=x" [class.clicked]="clickedCreneau==x">{{formatTimeSlot(creneau)}}</p>
-          </div>
+      <div class="transition" [class.noopacity]="!mobile||isSticky" [class.absolute]="!mobile||isSticky">
+  
+        <img src="menu.png" class="clickable menuorbe" (click)="clickMenuMobile()"/>
+        <img src="{{lang==0?'fr':'en'}}.png" class="clickable lang" (click)="lang=lang==0?1:0"/>
+  
+        <div class="toplogo2">
+          <img src="shibako.png" class="shibako"/>
+          <img src="logo.png">
+          <img src="tattoo.png" class="tattoo"/>
+        </div>
+        
+        <img src="ligne.png" class="ligne botminmarg"/>
+      </div>
+      
+  
+      <div class="transition" [class.noopacity]="!isSticky" [class.absolute]="!isSticky" [class.stuck]="isSticky">
+  
+        <img src="menu.png" class="clickable menuorbe" (click)="clickMenuMobile()"/>
+        <img src="{{lang==0?'fr':'en'}}.png" class="clickable lang" (click)="lang=lang==0?1:0"/>
+  
+        <div class="toplogo2">
+          <img src="shibako.png" class="shibako"/>
+          <img src="logo.png">
+          <img src="tattoo.png" class="tattoo"/>
+        </div>
+        
+        <img src="ligne.png" class="ligne botminmarg"/>
+      </div>
+      
+    </div>
+  
+    <!-- CONTENT -->
     
-          <div class="fields">
-            <ng-container *ngFor="let field of getFlashFields();let i=index">
-              <div *ngIf="field.type=='select'" class="select">
-                <select [(ngModel)]="resa[field.id]" [class.borderwhite]="resa[field.id]&&resa[field.id]!=-1">
-                  <option [value]="-1">{{field.nom}}</option>
-                  <option *ngFor="let opt of field.options;let x=index" [value]="x">{{opt}}</option>
-                </select>
-              </div>
-              <div *ngIf="field.type=='text'" class="input">
-                <input type="text" [placeholder]="field.nom+'..'" [(ngModel)]="resa[field.id]" [class.borderwhite]="resa[field.id]&&resa[field.id]!=''"/>
-              </div>
-            </ng-container>
-          </div>
-          <div class="fields">
-            <ng-container *ngFor="let field of getFlashFields(true);let i=index">
-              <div *ngIf="field.type=='textarea'" class="textarea">
-                <textarea type="text" [placeholder]="field.nom+'..'" [(ngModel)]="resa[field.id]" [class.borderwhite]="resa[field.id]&&resa[field.id]!=''"></textarea>
-              </div>
-            </ng-container>
-          </div>
-          <button class="resa" (click)="reserver()">{{data[lang].textes.resa}}</button>
+    <div class="content" [style.opacity]="opacity">
+      <div class="whoami" *ngIf="menuClicked==0" [class.stuckcontent]="isSticky">
+        <div class="desc">
+          <img src="me.png" />
+          <p [innerHTML]="data[lang].textes.whoami"></p>
+        </div>
+      
+        <img src="ligne.png" class="ligne midline"/>
+      
+        <div class="mywork">
+            <img *ngFor="let i of generateRange(5)" src="mywork/{{i}}.png"/>
+        </div>
       </div>
-      </ng-container>
-        
-      <ng-container *ngIf="flashClicked&&flashClicked.reserved">
-        <div class="clickedFlash">
-          <div class="retour">
-            <button (click)="flashClicked=undefined;">{{data[lang].textes.retour}}</button>
-          </div>
-          <div class="flex center">
-            <div class="flash">
-              <img src="flashs/{{flashClicked.img}}"/>
-        
-              <div class="infos">
-                <div>
-                  <p>{{flashClicked.nom}}</p>
-                  <p>{{flashClicked.univers}}</p>
+    
+      <div *ngIf="menuClicked==1" [class.stuckcontent]="isSticky">
+        <ng-container *ngIf="!flashClicked">
+          <div class="flashs">
+              <div *ngFor="let flash of getFlashs()" class="flash" (click)="reserverFlash(flash)">
+                <img src="https://chiyanh.cluster031.hosting.ovh.net/shibako/flashs/{{flash.img}}" />
+          
+                <div class="infos">
+                  <div>
+                    <p>{{flash.nom}}</p>
+                    <p>{{flash.univers}}</p>
+                  </div>
+                  <div>
+                    <p>Temps : {{flash.temps}}</p>
+                    <p>Prix : {{flash.prix}}€</p>
+                  </div>
                 </div>
-                <div>
-                  <p>Temps : {{flashClicked.temps}}</p>
-                  <p>Prix : {{flashClicked.prix}}€</p>
+          
+              </div>
+          </div>
+        </ng-container>
+          
+        <ng-container *ngIf="flashClicked&&!flashClicked.reserved">
+        <div class="clickedFlash">
+            <div class="retour">
+              <button (click)="flashClicked=undefined">{{data[lang].textes.retour}}</button>
+            </div>
+            <div class="flashClicked">
+              <div class="flash">
+                <img src="flashs/{{flashClicked.img}}"/>
+          
+                <div class="infos">
+                  <div>
+                    <p>{{flashClicked.nom}}</p>
+                    <p>{{flashClicked.univers}}</p>
+                  </div>
+                  <div>
+                    <p>Temps : {{flashClicked.temps}}</p>
+                    <p>Prix : {{flashClicked.prix}}€</p>
+                  </div>
+                </div>
+              </div>
+              <app-calendar [events]="events" [flashClicked]="flashClicked" (retour)="onClickDay($event)"></app-calendar>
+            </div>
+            
+            <p *ngIf="creneaux.length==0" class="center">{{data[lang].textes.selectDate}}</p>
+            <p *ngIf="creneaux.length>0 && clickedCreneau==-1" class="center">{{data[lang].textes.selectCreneau}}</p>
+    
+            <div class="creneaux" *ngIf="creneaux.length>0">
+              <p *ngFor="let creneau of creneaux;let x=index" class="clickable" (click)="clickedCreneau=x" [class.clicked]="clickedCreneau==x">{{formatTimeSlot(creneau)}}</p>
+            </div>
+      
+            <div class="fields">
+              <ng-container *ngFor="let field of getFlashFields();let i=index">
+                <div *ngIf="field.type=='select'" class="select">
+                  <div class="blocligne" [ngStyle]="{'background-position-x': getRandomOffset(i)}"></div>
+                  <select [(ngModel)]="resa[field.id]" [class.borderwhite]="resa[field.id]&&resa[field.id]!=-1">
+                    <option [value]="-1">{{field.nom}}</option>
+                    <option *ngFor="let opt of field.options;let x=index" [value]="x">{{opt}}</option>
+                  </select>
+                </div>
+                <div *ngIf="field.type=='text'" class="input">
+                  <div class="blocligne" [ngStyle]="{'background-position-x': getRandomOffset(i)}"></div>
+                  <input type="text" [placeholder]="field.nom+'..'" [(ngModel)]="resa[field.id]" [class.borderwhite]="resa[field.id]&&resa[field.id]!=''"/>
+                </div>
+              </ng-container>
+            </div>
+            <div class="fields">
+              <ng-container *ngFor="let field of getFlashFields(true);let i=index">
+                <div *ngIf="field.type=='textarea'" class="textarea">
+                  <img src="bloc.png" class="bloc textareabloc"/>
+                  <textarea type="text" [placeholder]="field.nom+'..'" [(ngModel)]="resa[field.id]" [class.borderwhite]="resa[field.id]&&resa[field.id]!=''"></textarea>
+                </div>
+              </ng-container>
+            </div>
+            <button class="resa" (click)="reserver()">{{data[lang].textes.resa}}</button>
+        </div>
+        </ng-container>
+          
+        <ng-container *ngIf="flashClicked&&flashClicked.reserved">
+          <div class="clickedFlash">
+            <div class="retour">
+              <button (click)="flashClicked=undefined;">{{data[lang].textes.retour}}</button>
+            </div>
+            <div class="flex center">
+              <div class="flash">
+                <img src="flashs/{{flashClicked.img}}"/>
+          
+                <div class="infos">
+                  <div>
+                    <p>{{flashClicked.nom}}</p>
+                    <p>{{flashClicked.univers}}</p>
+                  </div>
+                  <div>
+                    <p>Temps : {{flashClicked.temps}}</p>
+                    <p>Prix : {{flashClicked.prix}}€</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-  
-          <p class="center">Votre réservation est validée pour le {{formatEventDate(creneaux[clickedCreneau])}}</p>
-          <p class="center">Merci et à bientôt ! :)</p>
-          <br/>
-      </div>
-      <div class="flex center">
-        <button (click)="flashClicked=undefined;">{{data[lang].textes.retour}}</button>
-      </div>
-      </ng-container>
-    </div>
-  
-    <div class="contact" *ngIf="menuClicked==2" [class.stuckcontent]="isSticky">
-      <div class="topinfos">
-        <p>Envie d’un tatouage unique ? Contactez-moi pour discuter de votre projet et donner vie à votre idée avec passion et précision !</p>
-      </div>
-      <div class="fields">
-        <ng-container *ngFor="let field of data[lang].contact;let i=index">
-          <div *ngIf="field.type=='select'" class="select">
-            <div class="blocligne" [ngStyle]="{'background-position-x': getRandomOffset(i)}"></div>
-            <select [(ngModel)]="resa[field.id]" [class.borderwhite]="resa[field.id]&&resa[field.id]!=-1">
-              <option [value]="-1">{{field.nom}}</option>
-              <option *ngFor="let opt of field.options;let x=index" [value]="x">{{opt}}</option>
-            </select>
-          </div>
-          <div *ngIf="field.type=='text'" class="input">
-            <div class="blocligne" [ngStyle]="{'background-position-x': getRandomOffset(i)}"></div>
-            <input type="text" [placeholder]="field.nom+'..'" [(ngModel)]="resa[field.id]" [class.borderwhite]="resa[field.id]&&resa[field.id]!=''"/>
-          </div>
+    
+            <p class="center">Votre réservation est validée pour le {{formatEventDate(creneaux[clickedCreneau])}}</p>
+            <p class="center">Merci et à bientôt ! :)</p>
+            <br/>
+        </div>
+        <div class="flex center">
+          <button (click)="flashClicked=undefined;">{{data[lang].textes.retour}}</button>
+        </div>
         </ng-container>
       </div>
-      <div class="fields">
-        <ng-container *ngFor="let field of data[lang].contact;let i=index">
-          <div *ngIf="field.type=='textarea'" class="textarea">
-            <img src="bloc.png" class="bloc textareabloc"/>
-            <textarea type="text" [placeholder]="field.nom+'..'" [(ngModel)]="resa[field.id]" [class.borderwhite]="resa[field.id]&&resa[field.id]!=''"></textarea>
-          </div>
-        </ng-container>
-        <input type="file" (change)="onFileSelect($event)" multiple />
+    
+      <div class="contact" *ngIf="menuClicked==2" [class.stuckcontent]="isSticky">
+        <div class="topinfos">
+          <p>{{data[lang].textes.envietattoo}}</p>
+        </div>
+        <div class="fields">
+          <ng-container *ngFor="let field of data[lang].contact;let i=index">
+            <div *ngIf="field.type=='select'" class="select">
+              <div class="blocligne" [ngStyle]="{'background-position-x': getRandomOffset(i)}"></div>
+              <select [(ngModel)]="resa[field.id]" [class.borderwhite]="resa[field.id]&&resa[field.id]!=-1">
+                <option [value]="-1">{{field.nom}}</option>
+                <option *ngFor="let opt of field.options;let x=index" [value]="x">{{opt}}</option>
+              </select>
+            </div>
+            <div *ngIf="field.type=='text'" class="input">
+              <div class="blocligne" [ngStyle]="{'background-position-x': getRandomOffset(i)}"></div>
+              <input type="text" [placeholder]="field.nom+'..'" [(ngModel)]="resa[field.id]" [class.borderwhite]="resa[field.id]&&resa[field.id]!=''"/>
+            </div>
+          </ng-container>
+        </div>
+        <div class="fields">
+          <ng-container *ngFor="let field of data[lang].contact;let i=index">
+            <div *ngIf="field.type=='textarea'" class="textarea">
+              <img src="bloc.png" class="bloc textareabloc"/>
+              <textarea type="text" [placeholder]="field.nom+'..'" [(ngModel)]="resa[field.id]" [class.borderwhite]="resa[field.id]&&resa[field.id]!=''"></textarea>
+            </div>
+          </ng-container>
+          <input type="file" (change)="onFileSelect($event)" multiple />
+        </div>
+    
+        <button class="resa" (click)="sendMail()">{{data[lang].textes.rdv}}</button>
       </div>
+    </div>
+    
   
-      <button class="resa" (click)="sendMail()">{{data[lang].textes.rdv}}</button>
+    <!-- FOOTER -->
+  
+    <div class="footer">
+      <img src="ligne.png" class="ligne topmarg"/>
+  
+      <div class="content">
+        <div class="left">
+          <p>Contact</p>
+          <p class="clickable" (click)="openInsta()"><img src="insta.png"/>Instagram : &#64;shibako_tattoo</p>
+          <p><img src="mail.png"/>E-mail : shibakotattoo&#64;outlook.fr</p>
+        </div>
+        <div class="right">
+          <button *ngIf="!(menuClicked==2||(flashClicked&&menuClicked==1))" (click)="menuClicked=2">{{data[lang].textes.rdv}}</button>
+        </div>
+    </div>
+  
     </div>
   </div>
-  
 
-  <!-- FOOTER -->
-
-  <div class="footer">
-    <img src="ligne.png" class="ligne topmarg"/>
-
-    <div class="content">
-      <div class="left">
-        <p>Contact</p>
-        <p class="clickable" (click)="openInsta()"><img src="insta.png"/>Instagram : &#64;shibako_tattoo</p>
-        <p><img src="mail.png"/>E-mail : shibakotattoo&#64;outlook.fr</p>
-      </div>
-      <div class="right">
-        <button *ngIf="!(menuClicked==2||(flashClicked&&menuClicked==1))" (click)="menuClicked=2">{{data[lang].textes.rdv}}</button>
-      </div>
-  </div>
-
-  </div>
-  
 </div>
 
 <!-- ADMIN ============================-->

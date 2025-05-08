@@ -42,13 +42,15 @@ export class AppComponent implements OnInit {
   clickedCreneau:any;
   opacity = 1;
   mobile = false;
+  showmenu=false;
 
   randomOffsets: string[] = [];
 
   adminmenus = ["Contenu","Flashs"];
 
   isSticky: boolean = false;
-  stuckThreshold = 110;
+  stuckThreshold = 100;
+  mobileThreshold = 700;
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -67,8 +69,8 @@ export class AppComponent implements OnInit {
     let innerHeight = event.target.innerHeight;
     let innerWidth = event.target.innerWidth;
 
-    if (innerHeight > innerWidth && innerWidth < 600)this.mobile = true;
-    else this.mobile = false;
+    if (innerHeight > innerWidth && innerWidth < this.mobileThreshold){this.mobile = true;}
+    else {this.showmenu=false;this.mobile = false;}
   }
 
   constructor(private googleCalendarService: GoogleCalendarService, private http: HttpClient, private route: ActivatedRoute) {}
@@ -78,7 +80,7 @@ export class AppComponent implements OnInit {
     let innerHeight = window.innerHeight;
     let innerWidth = window.innerWidth;
 
-    if (innerHeight > innerWidth && innerWidth < 600)this.mobile = true;
+    if (innerHeight > innerWidth && innerWidth < this.mobileThreshold)this.mobile = true;
     else this.mobile = false;
 
     
@@ -123,9 +125,16 @@ export class AppComponent implements OnInit {
 
   clickMenu(i:any)
   {
-    
+    window.scrollTo(0, 0);
+    this.showmenu = false;
     this.opacity = 0;
     let int = setInterval(()=>{this.menuClicked=i;this.opacity=1;clearInterval(int);},500);
+  }
+
+  clickMenuMobile()
+  {
+    window.scrollTo(0, 0);
+    this.showmenu = !this.showmenu;
   }
 
   getData()
@@ -201,9 +210,10 @@ export class AppComponent implements OnInit {
 
   reserverFlash(flash:any)
   {
+    window.scrollTo(0, 0);
     this.creneaux = [];
     this.clickedCreneau = -1;
-   this.flashClicked = flash;
+    this.flashClicked = flash;
   }
 
   reserver()

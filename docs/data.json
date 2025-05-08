@@ -7,7 +7,8 @@
       "resa": "Réserver",
       "retour": "Retour",
       "selectDate": "Veuillez sélectionner une date de réservation",
-      "selectCreneau": "Veuillez sélectionner un créneau"
+      "selectCreneau": "Veuillez sélectionner un créneau",
+      "envietattoo": "Envie d’un tatouage unique ? Contactez-moi pour discuter de votre projet et donner vie à votre idée avec passion et précision !"
     },
     "contact": [
       {
@@ -69,7 +70,8 @@
       "resa": "Book",
       "retour": "Return",
       "selectDate": "Please select a booking date",
-      "selectCreneau": "Please select a time slot"
+      "selectCreneau": "Please select a time slot",
+      "envietattoo": "Want a unique tattoo ? Give me informations about your project and give it life with passion and precision !"
     },
     "contact": [
       {

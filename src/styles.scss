@@ -12,6 +12,8 @@
 body{
     margin:0;
     background-color:var(--noir);
+    overflow-x:hidden;
+    transition:0.5s;
 }
 *{
     color:var(--blanc);
@@ -72,11 +74,14 @@ img, .line, .midline{
     filter:drop-shadow(1px 1px 3px var(--gris)) drop-shadow(1px 1px 3px var(--gris));
 }
 .container{
-    padding: 10vh 2vw;
     overflow:hidden;
     max-width:1200px;
     margin:auto;
-    min-width:400px;
+    min-width:500px;
+    overflow-x:hidden;
+    .data{
+        padding: 10vh 2vw;
+    }
 }
 .topcadre{
     position: absolute;
@@ -101,6 +106,9 @@ img, .line, .midline{
     left:0px;
     z-index: 10;
 }
+.transition{
+    transition:0.5s;
+}
 .toplogo{
     display: flex;
     justify-content: center;
@@ -108,25 +116,43 @@ img, .line, .midline{
     img{
         height:100px;
     }
+    .shibako{
+        transform: translateX(-140px);
+        transition:0.5s;
+        position: absolute;
+        filter: drop-shadow(1px 1px 3px var(--gris)) drop-shadow(1px 1px 3px var(--gris)) drop-shadow(1px 1px 3px var(--gris)) drop-shadow(1px 1px 3px var(--gris));
+    }
+    .tattoo{
+        transform: translateX(125px);
+        transition:0.5s;
+        position: absolute;
+        filter: drop-shadow(1px 1px 3px var(--gris)) drop-shadow(1px 1px 3px var(--gris)) drop-shadow(1px 1px 3px var(--gris)) drop-shadow(1px 1px 3px var(--gris));
+    }
 }
-.shibako{
-    transform: translateX(-140px);
-    transition:0.5s;
-    position: absolute;
-    filter: drop-shadow(1px 1px 3px var(--gris)) drop-shadow(1px 1px 3px var(--gris)) drop-shadow(1px 1px 3px var(--gris)) drop-shadow(1px 1px 3px var(--gris));
-}
-.tattoo{
-    transform: translateX(125px);
-    transition:0.5s;
-    position: absolute;
-    filter: drop-shadow(1px 1px 3px var(--gris)) drop-shadow(1px 1px 3px var(--gris)) drop-shadow(1px 1px 3px var(--gris)) drop-shadow(1px 1px 3px var(--gris));
+.toplogo2{
+    top: -12px;
+    display: flex;
+    justify-content: center;
+    img{
+        height:50px;
+    }
+    .shibako{
+        transform: translateX(-10px);
+        transition:0.5s;
+        filter: drop-shadow(1px 1px 3px var(--gris)) drop-shadow(1px 1px 3px var(--gris)) drop-shadow(1px 1px 3px var(--gris)) drop-shadow(1px 1px 3px var(--gris));
+    }
+    .tattoo{
+        transform: translateX(10px);
+        transition:0.5s;
+        filter: drop-shadow(1px 1px 3px var(--gris)) drop-shadow(1px 1px 3px var(--gris)) drop-shadow(1px 1px 3px var(--gris)) drop-shadow(1px 1px 3px var(--gris));
+    }
 }
 .ligne{
     width:80%;
     left: 10%;
     margin-bottom:5vh;
-    height: 50px;
-    top: -20px;
+    height: 30px;
+    top: -10px;
     pointer-events: none;
 }
 .line{
@@ -167,6 +193,23 @@ img, .line, .midline{
     justify-content: space-evenly;
     p{
         white-space: nowrap;
+    }
+}
+.mobile{
+    .whoami{
+        .desc{
+            display: block;
+            img{
+                display:flex;
+                margin:auto;
+            }
+            p{
+                width: 90%;
+                margin: auto;
+                text-align: center;
+                padding-top: 2vh;
+            }
+        }
     }
 }
 .whoami{
@@ -235,6 +278,16 @@ img, .line, .midline{
     border-color:var(--vert)!important;
     filter: drop-shadow(1px 1px 3px var(--vert)) drop-shadow(1px 1px 3px var(--vert))!important;
 }
+.mobile{
+    .flash{
+        min-width: 150px;
+        max-width: 150px;
+        img{
+            min-height: 20vh;
+            max-height: 20vh;
+        }
+}
+}
     .flash{
         border:2px ridge var(--gris);
         padding:5% 5%;
@@ -290,26 +343,55 @@ app-calendar{
     opacity:0!important;
     pointer-events: none!important;
 }
+.nothingness{
+    opacity:0!important;
+    pointer-events: none!important;
+}
 .center{
     justify-content: center;
     text-align: center;
 }
+.absolute{
+    position:absolute;
+    top:0px;
+}
 .lang{
     width: 35px;
     position: absolute;
-    top: 80px;
     right: 70px;
     z-index: 11;
 }
 .menuorbe{
     width: 25px;
   position: absolute;
-  top: 80px;
   left: 70px;
   z-index: 11;
   transition:0.5s;
 }
+.mobile .clickedFlash{
+    .flashClicked{
+        justify-content: center;
+        text-align: center;
+        display:block;
+        .flash{
+            margin: auto;
+            margin-bottom:2vh;
+        }
+        app-calendar{
+            margin:auto;
+        }
+    }
+}
 .clickedFlash{
+    .flashClicked{
+        justify-content: center;
+        text-align: center;
+        display:flex;
+        app-calendar{
+            display:block;
+            width:fit-content
+        }
+    }
     .creneaux{
         display: flex;
         flex-flow: wrap;
@@ -518,15 +600,23 @@ app-ghost{
 
 .header{
     transition: all 0.3s ease-in-out;
+    div{
+        width: -moz-available;
+    }
+}
+.mobile .stuck{
+    left:0px;
 }
 .stuck {
     position: fixed;
-    transform:translateY(-110px);
-    background-color: var(--noir);
-    height: 166px;
+  background-color: var(--noir);
+  top: 0px;
+  padding-top: 20px;
+  max-width:1240px;
+  min-width:500px;
   }
 .stuckcontent{
-    padding-top:220px;
+    padding-top:160px;
 }
 .stuckflag{
     position:fixed;
@@ -536,4 +626,34 @@ app-ghost{
     width: 90%;
   margin-left: 5%;
   transition:0.5s;
+}
+.menumobile{
+    position: absolute;
+  top: 0px;
+  width: 100%;
+  background-color: var(--noir);
+  height: 100%;
+  z-index: 100;
+  left: 0px;
+  div{
+    top: 5vh;
+    .quit{
+        position: absolute;
+        z-index: 1;
+        top: -20%;
+        left: 5%;
+        font-size: 30px;
+    }
+    img{
+        position: absolute;
+        left: 0px;
+        width: 100%;
+        height: 200%;
+        top: -60%;
+    }
+    p{
+        width: fit-content;
+        margin: auto;
+    }
+  }
 }
