@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { from, Observable } from 'rxjs';
 import { google } from 'googleapis';
 import { gapi } from 'gapi-script';
+import { environment } from '../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -17,12 +18,10 @@ export class GoogleCalendarService {
   }
 
   private loadApiKey() {
-    this.http.get<any>('oauth.json').subscribe((config:any) => {
-      this.API_KEY = config.API_KEY;
-      this.CALENDAR_ID = config.CALENDAR_ID;
-      this.BASE_URL = config.BASE_URL;
-      console.log("Données calendrier chargées");
-    });
+    let oauth = environment.oauth;
+    this.API_KEY = oauth.API_KEY;
+    this.CALENDAR_ID = oauth.CALENDAR_ID;
+    this.BASE_URL = oauth.BASE_URL;
   }
 
   addEvent(event: { start: string; end: string }) {

@@ -106,10 +106,8 @@ export class AppComponent implements OnInit {
 
     if(this.safe&&isDevMode())
     {
-      this.http.get<any>('mockdata.json').subscribe((data:any) => {
-        this.events = data;
-        console.log(this.events);
-      });
+      this.events = environment.mockdata;
+      console.log(this.events);
     }
     else
     {
